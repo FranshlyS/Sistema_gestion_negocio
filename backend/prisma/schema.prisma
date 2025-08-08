@@ -14,6 +14,48 @@ model User {
   password  String
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+  
+  // Relación con productos
+  products  Product[]
 
   @@map("users")
+}
+
+model Product {
+  id          Int         @id @default(autoincrement())
+  name        String
+  type        ProductType // pack, weight
+  userId      Int         @map("user_id")
+  
+  // Campos para productos por pack
+  packQuantity      Int?    @map("pack_quantity")
+  productsPerPack   Int?    @map("products_per_pack")
+  buyPricePerPack   Float?  @map("buy_price_per_pack")
+  
+  // Campos para productos por peso
+  weightUnit        String? @map("weight_unit") // "lb" o "kg"
+  totalWeight       Float?  @map("total_weight")
+  buyPricePerUnit   Float?  @map("buy_price_per_unit")
+  
+  // Campo común
+  sellPricePerUnit  Float   @map("sell_price_per_unit")
+  
+  // Campos calculados
+  totalUnits        Float   @map("total_units")
+  totalInvested     Float   @map("total_invested")
+  totalProfit       Float   @map("total_profit")
+  
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  
+  // Relación con usuario
+  user User @relation(fields: [userId], references: [id])
+  
+  @@index([userId])
+  @@map("products")
+}
+
+enum ProductType {
+  pack
+  weight
 }

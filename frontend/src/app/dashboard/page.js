@@ -22,6 +22,10 @@ export default function Dashboard() {
     router.push('/login');
   };
 
+  const goToProducts = () => {
+    router.push('/products');
+  };
+
   if (!user) {
     return <div>Cargando...</div>;
   }
@@ -29,18 +33,31 @@ export default function Dashboard() {
   return (
     <div className="dashboard-container">
       <div className="dashboard-content">
-        <h1>Bienvenido, {user.fullName}!</h1>
+        <h1>Panel de Control</h1>
+        
         <div className="user-info">
+          <h2>Bienvenido, {user.fullName}!</h2>
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>ID:</strong> {user.id}</p>
         </div>
-        <button 
-          onClick={handleLogout} 
-          className="logout-btn"
-          data-testid="logout-button"
-        >
-          Cerrar Sesión
-        </button>
+
+        <div className="dashboard-actions">
+          <button 
+            onClick={goToProducts}
+            className="action-btn primary"
+            data-testid="go-to-products"
+          >
+            📦 Gestionar Productos
+          </button>
+          
+          <button 
+            onClick={handleLogout} 
+            className="action-btn secondary"
+            data-testid="logout-button"
+          >
+            Cerrar Sesión
+          </button>
+        </div>
       </div>
     </div>
   );
