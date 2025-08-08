@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Reporte E2E Mejorado - 2025-08-08T21-17-21-517Z</title>
+<style>
+      body{font-family:'Segoe UI',Arial,sans-serif;margin:20px;background:#f8f9fa;color:#212529;line-height:1.5}
+      h1{color:#343a40;margin-bottom:10px;font-size:28px}
+      .meta{color:#6c757d;margin-bottom:20px;font-size:14px}
+      .summary{display:flex;gap:15px;align-items:center;margin-bottom:25px;flex-wrap:wrap}
+      .badge{padding:8px 12px;border-radius:8px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:5px}
+      .badge.total{background:#e9ecef;color:#495057}
+      .badge.green{color:#155724;background:#d4edda;border:1px solid #c3e6cb}
+      .badge.red{color:#721c24;background:#f8d7da;border:1px solid #f5c6cb}
+      .badge.yellow{color:#856404;background:#fff3cd;border:1px solid #ffeaa7}
+      .duration-badge{background:#17a2b8;color:white;margin-left:auto}
+      
+      table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+      th,td{padding:15px;text-align:left;font-size:14px}
+      th{background:#f8f9fa;font-weight:700;color:#495057;border-bottom:2px solid #dee2e6}
+      tr{border-bottom:1px solid #f1f3f4;transition:background-color 0.2s ease}
+      tr:hover{background-color:#f8f9fa}
+      tr.passed{border-left:4px solid #28a745}
+      tr.failed{border-left:4px solid #dc3545}
+      tr.error{border-left:4px solid #ffc107}
+      
+      .test-name{font-weight:700;color:#343a40;margin-bottom:4px}
+      .test-meta{font-size:12px;color:#6c757d}
+      .duration{font-weight:600;color:#495057}
+      .error-msg{color:#dc3545;font-weight:600;margin-top:8px;padding:8px;background:#f8d7da;border-radius:4px;font-size:13px}
+      
+      .steps-container{max-height:400px;overflow-y:auto}
+      .step{margin-bottom:8px;padding:10px;border-radius:6px;background:#f8f9fa;border-left:3px solid #6c757d}
+      .step.pass{border-left-color:#28a745;background:#f1f8f4}
+      .step.fail{border-left-color:#dc3545;background:#fdf2f2}
+      .step.info{border-left-color:#17a2b8;background:#f0fffe}
+      
+      .step-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+      .step-msg{font-weight:500;color:#343a40}
+      .step-status{font-size:11px;font-weight:700;text-transform:uppercase;padding:2px 6px;border-radius:3px}
+      .step-status.pass{background:#28a745;color:white}
+      .step-status.fail{background:#dc3545;color:white}
+      .step-status.info{background:#17a2b8;color:white}
+      .step-time{font-size:11px;color:#6c757d}
+      
+      .screenshot-container{margin-top:8px}
+      img.thumb{width:150px;height:auto;border-radius:6px;border:2px solid #dee2e6;cursor:pointer;transition:all 0.3s ease}
+      img.thumb:hover{border-color:#007bff;transform:scale(1.02);box-shadow:0 2px 8px rgba(0,123,255,0.3)}
+    </style>
+</head>
+<body>
+  <h1> Reporte E2E - Sistema Mejorado</h1>
+  <div class="meta">
+     <strong>Base URL:</strong> http://localhost:3000 <br>
+     <strong>Generado:</strong> 8/8/2025, 5:19:50 p. m. <br>
+     <strong>Run ID:</strong> 2025-08-08T21-17-21-517Z
+  </div>
+
+  <div class="summary">
+    <div class="badge total">Total: 8</div>
+    <div class="badge green"> Exitosos: 7</div>
+    <div class="badge red"> Fallados: 1</div>
+    <div class="badge yellow"> Errores: 0</div>
+    <div class="badge duration-badge">⏱ 145.84s</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th> Prueba</th><th> Duración</th><th> Detalles</th></tr>
+    </thead>
+    <tbody>
+        <tr class="passed">
+          <td style="width:30%">
+            <div class="test-name"> Auth - Registro exitoso (mejorado)</div>
+            <div class="test-meta">
+               2025-08-08T21:17:32.850Z → 2025-08-08T21:17:46.350Z
+            </div>
+            
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">13.50s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Preparando registro con email: testuser1754687852851@ejemplo.com</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:32.851Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Página de registro cargada</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:37.513Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687857510-register_page_loaded.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687857510-register_page_loaded.png','Auth - Registro exitoso (mejorado) - Página de registro cargada')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Llenando formulario de registro...</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:37.579Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Nombre completo ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:38.794Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Email ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:40.066Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Contraseña ingresada</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:41.279Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario completado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:41.663Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687861659-register_form_filled.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687861659-register_form_filled.png','Auth - Registro exitoso (mejorado) - Formulario completado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Enviando formulario...</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:41.663Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario enviado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:43.083Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687863080-register_form_submitted.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687863080-register_form_submitted.png','Auth - Registro exitoso (mejorado) - Formulario enviado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Mensaje de registro exitoso mostrado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:43.594Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687863592-register_success_message.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687863592-register_success_message.png','Auth - Registro exitoso (mejorado) - Mensaje de registro exitoso mostrado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Redirigido correctamente a login</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:46.350Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687866348-register_redirected_to_login.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687866348-register_redirected_to_login.png','Auth - Registro exitoso (mejorado) - Redirigido correctamente a login')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="passed">
+          <td style="width:30%">
+            <div class="test-name"> Auth - Login exitoso (mejorado)</div>
+            <div class="test-meta">
+               2025-08-08T21:17:46.351Z → 2025-08-08T21:17:54.232Z
+            </div>
+            
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">7.88s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Usando email del registro: testuser1754687852851@ejemplo.com</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:46.351Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Página de login cargada</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:47.748Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687867743-login_page_loaded.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687867743-login_page_loaded.png','Auth - Login exitoso (mejorado) - Página de login cargada')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Email ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:49.013Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Contraseña ingresada</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:50.004Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario de login completado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:50.317Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687870315-login_form_filled.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687870315-login_form_filled.png','Auth - Login exitoso (mejorado) - Formulario de login completado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario enviado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:51.662Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687871660-login_form_submitted.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687871660-login_form_submitted.png','Auth - Login exitoso (mejorado) - Formulario enviado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Login exitoso - Redirigido al dashboard</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:54.221Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687874218-login_success_dashboard.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687874218-login_success_dashboard.png','Auth - Login exitoso (mejorado) - Login exitoso - Redirigido al dashboard')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="passed">
+          <td style="width:30%">
+            <div class="test-name"> Productos - Navegación mejorada</div>
+            <div class="test-meta">
+               2025-08-08T21:17:54.236Z → 2025-08-08T21:18:00.731Z
+            </div>
+            
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">6.50s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Dashboard cargado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:17:55.788Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687875786-dashboard_for_navigation.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687875786-dashboard_for_navigation.png','Productos - Navegación mejorada - Dashboard cargado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Click en botón de productos</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:56.546Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Página de productos alcanzada</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:17:59.610Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687879608-products_page_reached.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687879608-products_page_reached.png','Productos - Navegación mejorada - Página de productos alcanzada')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Botón &quot;Agregar Pack&quot; encontrado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:00.173Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Botón &quot;Agregar Peso&quot; encontrado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:00.730Z</div>
+            
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="passed">
+          <td style="width:30%">
+            <div class="test-name"> Productos - Crear pack exitoso (mejorado)</div>
+            <div class="test-meta">
+               2025-08-08T21:18:00.732Z → 2025-08-08T21:18:14.924Z
+            </div>
+            
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">14.19s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Página de productos cargada</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:03.937Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687883936-products_page_for_pack_creation.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687883936-products_page_for_pack_creation.png','Productos - Crear pack exitoso (mejorado) - Página de productos cargada')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Click en botón agregar pack</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:04.720Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario de pack abierto</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:05.507Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687885504-pack_form_opened.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687885504-pack_form_opened.png','Productos - Crear pack exitoso (mejorado) - Formulario de pack abierto')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Llenando formulario para: Pack E2E 1754687885507</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:05.507Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Nombre del producto ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:06.662Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Cantidad de packs ingresada</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:07.806Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Productos por pack ingresados</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:08.924Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Precio de compra ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:09.897Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Precio de venta ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:10.950Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario pack completado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:11.135Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687891134-pack_form_completed.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687891134-pack_form_completed.png','Productos - Crear pack exitoso (mejorado) - Formulario pack completado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Cálculos: 40 unidades, $50 invertido, $10 ganancia</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:11.240Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario pack enviado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:12.526Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687892525-pack_form_submitted.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687892525-pack_form_submitted.png','Productos - Crear pack exitoso (mejorado) - Formulario pack enviado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Mensaje de éxito mostrado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:12.749Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687892747-pack_success_message.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687892747-pack_success_message.png','Productos - Crear pack exitoso (mejorado) - Mensaje de éxito mostrado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Estado final después de creación</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:14.924Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687894922-pack_creation_final_state.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687894922-pack_creation_final_state.png','Productos - Crear pack exitoso (mejorado) - Estado final después de creación')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="passed">
+          <td style="width:30%">
+            <div class="test-name"> Productos - Crear peso exitoso (mejorado)</div>
+            <div class="test-meta">
+               2025-08-08T21:18:14.925Z → 2025-08-08T21:18:28.645Z
+            </div>
+            
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">13.72s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Página de productos cargada</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:17.867Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687897866-products_page_for_weight_creation.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687897866-products_page_for_weight_creation.png','Productos - Crear peso exitoso (mejorado) - Página de productos cargada')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Click en botón agregar peso</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:18.484Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario de peso abierto</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:19.162Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687899159-weight_form_opened.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687899159-weight_form_opened.png','Productos - Crear peso exitoso (mejorado) - Formulario de peso abierto')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Llenando formulario para: Peso E2E 1754687899162</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:19.162Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Nombre del producto peso ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:20.272Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Unidad cambiada a libras</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:21.852Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Peso total ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:22.816Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Precio de compra peso ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:23.890Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Precio de venta peso ingresado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:24.935Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario peso completado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:25.147Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687905145-weight_form_completed.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687905145-weight_form_completed.png','Productos - Crear peso exitoso (mejorado) - Formulario peso completado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario peso enviado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:26.263Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687906261-weight_form_submitted.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687906261-weight_form_submitted.png','Productos - Crear peso exitoso (mejorado) - Formulario peso enviado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Mensaje de éxito peso mostrado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:26.468Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687906467-weight_success_message.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687906467-weight_success_message.png','Productos - Crear peso exitoso (mejorado) - Mensaje de éxito peso mostrado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Estado final después de creación peso</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:28.645Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687908644-weight_creation_final_state.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687908644-weight_creation_final_state.png','Productos - Crear peso exitoso (mejorado) - Estado final después de creación peso')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="passed">
+          <td style="width:30%">
+            <div class="test-name"> ✏️ Productos - Editar producto pack</div>
+            <div class="test-meta">
+               2025-08-08T21:18:28.646Z → 2025-08-08T21:19:05.415Z
+            </div>
+            
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">36.77s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Página de productos cargada para edición</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:18:31.706Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687911702-products_before_edit.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687911702-products_before_edit.png','✏️ Productos - Editar producto pack - Página de productos cargada para edición')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Click en botón editar</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:18:31.930Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario de edición peso abierto</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:19:02.723Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687942721-edit_weight_form_opened.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687942721-edit_weight_form_opened.png','✏️ Productos - Editar producto pack - Formulario de edición peso abierto')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Nombre del producto peso modificado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:03.971Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Formulario de edición peso enviado</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:19:05.164Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687945163-weight_edit_submitted.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687945163-weight_edit_submitted.png','✏️ Productos - Editar producto pack - Formulario de edición peso enviado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Producto peso editado exitosamente</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:05.415Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687945414-weight_edit_success.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687945414-weight_edit_success.png','✏️ Productos - Editar producto pack - Producto peso editado exitosamente')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="failed">
+          <td style="width:30%">
+            <div class="test-name"> ⚠️ Validación - Edición con datos inválidos</div>
+            <div class="test-meta">
+               2025-08-08T21:19:05.416Z → 2025-08-08T21:19:42.523Z
+            </div>
+            <div class="error-msg"> Error: Elemento no encontrado después de 3 intentos: [data-testid=&quot;edit-weight-name-error&quot;]. URL: http://localhost:3000/products</div>
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">37.11s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Formulario de edición abierto</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:08.732Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Datos inválidos ingresados en peso</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:19:26.391Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687966390-weight_edit_invalid_data.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687966390-weight_edit_invalid_data.png','⚠️ Validación - Edición con datos inválidos - Datos inválidos ingresados en peso')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step fail">
+            <div class="step-header">
+              <div class="step-msg">Error: Elemento no encontrado después de 3 intentos: [data-testid=&quot;edit-weight-name-error&quot;]. URL: http://localhost:3000/products</div>
+              <span class="step-status fail">fail</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:42.521Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687982519-edit_validation_failed.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687982519-edit_validation_failed.png','⚠️ Validación - Edición con datos inválidos - Error: Elemento no encontrado después de 3 intentos: [data-testid=&quot;edit-weight-name-error&quot;]. URL: http://localhost:3000/products')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      
+        <tr class="passed">
+          <td style="width:30%">
+            <div class="test-name"> Inventario - Visualización mejorada</div>
+            <div class="test-meta">
+               2025-08-08T21:19:42.524Z → 2025-08-08T21:19:50.678Z
+            </div>
+            
+          </td>
+          <td style="width:10%;text-align:center">
+            <div class="duration">8.15s</div>
+          </td>
+          <td style="width:60%">
+            <div class="steps-container">
+              
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Página de inventario cargada</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:19:46.918Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687986917-inventory_page_loaded.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687986917-inventory_page_loaded.png','Inventario - Visualización mejorada - Página de inventario cargada')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Se encontraron 2 productos en inventario</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:46.932Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Totales: RD$113.75 invertido, RD$41.88 ganancia</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:46.984Z</div>
+            
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Filtro pack aplicado</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:48.821Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687988820-inventory_filtered_pack.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687988820-inventory_filtered_pack.png','Inventario - Visualización mejorada - Filtro pack aplicado')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+          <div class="step pass">
+            <div class="step-header">
+              <div class="step-msg">Filtro restaurado a &quot;todos&quot;</div>
+              <span class="step-status pass">pass</span>
+            </div>
+            <div class="step-time">2025-08-08T21:19:50.538Z</div>
+            
+          </div>
+        
+          <div class="step info">
+            <div class="step-header">
+              <div class="step-msg">Estado final del inventario</div>
+              
+            </div>
+            <div class="step-time">2025-08-08T21:19:50.677Z</div>
+            <div class="screenshot-container">
+            <img class="thumb" src="screenshots/2025-08-08T21-17-21-517Z/1754687990676-inventory_final_state.png" 
+                 onclick="openModal('screenshots/2025-08-08T21-17-21-517Z/1754687990676-inventory_final_state.png','Inventario - Visualización mejorada - Estado final del inventario')" 
+                 alt="Screenshot" title="Click para ampliar">
+           </div>
+          </div>
+        
+            </div>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+
+  <script>
+    function openModal(src, caption) {
+      // Simple lightbox implementation
+      const modal = document.createElement('div');
+      modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;';
+      
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.cssText = 'max-width:90%;max-height:90%;border-radius:8px;';
+      
+      modal.appendChild(img);
+      modal.onclick = () => document.body.removeChild(modal);
+      document.body.appendChild(modal);
+    }
+  </script>
+</body>
+</html>
