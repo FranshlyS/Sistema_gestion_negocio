@@ -15,8 +15,10 @@ model User {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   
-  // Relación con productos
-  products  Product[]
+  // Relaciones
+  products       Product[]
+  sales          Sale[]
+  stockMovements StockMovement[]
 
   @@map("users")
 }
@@ -24,7 +26,7 @@ model User {
 model Product {
   id          Int         @id @default(autoincrement())
   name        String
-  type        ProductType // pack, weight
+  type        ProductType
   userId      Int         @map("user_id")
   
   // Campos para productos por pack
@@ -33,7 +35,7 @@ model Product {
   buyPricePerPack   Float?  @map("buy_price_per_pack")
   
   // Campos para productos por peso
-  weightUnit        String? @map("weight_unit") // "lb" o "kg"
+  weightUnit        String? @map("weight_unit")
   totalWeight       Float?  @map("total_weight")
   buyPricePerUnit   Float?  @map("buy_price_per_unit")
   
@@ -45,17 +47,101 @@ model Product {
   totalInvested     Float   @map("total_invested")
   totalProfit       Float   @map("total_profit")
   
+  // Campo para control de stock
+  currentStock      Float   @default(0) @map("current_stock")
+  
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   
-  // Relación con usuario
-  user User @relation(fields: [userId], references: [id])
+  // Relaciones
+  user           User            @relation(fields: [userId], references: [id])
+  saleDetails    SaleDetail[]
+  stockMovements StockMovement[]
   
   @@index([userId])
   @@map("products")
 }
 
+model Sale {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @map("user_id")
+  saleNumber  String   @unique @map("sale_number")
+  totalAmount Float    @map("total_amount")
+  totalItems  Int      @map("total_items")
+  status      SaleStatus @default(COMPLETED)
+  notes       String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  
+  // Relaciones
+  user User @relation(fields: [userId], references: [id])
+  saleDetails SaleDetail[]
+  
+  @@index([userId])
+  @@index([saleNumber])
+  @@map("sales")
+}
+
+model SaleDetail {
+  id           Int     @id @default(autoincrement())
+  saleId       Int     @map("sale_id")
+  productId    Int     @map("product_id")
+  quantity     Float
+  unitPrice    Float   @map("unit_price")
+  totalPrice   Float   @map("total_price")
+  createdAt    DateTime @default(now()) @map("created_at")
+  
+  // Relaciones
+  sale Sale @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+  
+  @@index([saleId])
+  @@index([productId])
+  @@map("sale_details")
+}
+
+model StockMovement {
+  id            Int      @id @default(autoincrement())
+  productId     Int      @map("product_id")
+  userId        Int      @map("user_id")
+  type          MovementType
+  quantity      Float
+  previousStock Float    @map("previous_stock")
+  newStock      Float    @map("new_stock")
+  reason        MovementReason
+  notes         String?
+  createdAt     DateTime @default(now()) @map("created_at")
+  
+  // Relaciones
+  product Product @relation(fields: [productId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
+  
+  @@index([productId])
+  @@index([userId])
+  @@map("stock_movements")
+}
+
 enum ProductType {
   pack
   weight
+}
+
+enum SaleStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+enum MovementType {
+  IN
+  OUT
+}
+
+enum MovementReason {
+  RESTOCK
+  SALE
+  ADJUSTMENT
+  DAMAGED
+  EXPIRED
+  RETURNED
 }

@@ -411,4 +411,212 @@ router.delete('/:id', authMiddleware, async (req, res) => {
   }
 });
 
+// POST /api/products/:id/add-stock - Agregar stock a producto existente
+router.post('/:id/add-stock', authMiddleware, async (req, res) => {
+  try {
+    const productId = parseInt(req.params.id);
+    const { quantity, reason, notes } = req.body;
+
+    // Verificar que el producto existe y pertenece al usuario
+    const existingProduct = await prisma.product.findFirst({
+      where: { 
+        id: productId,
+        userId: req.user.userId
+      }
+    });
+
+    if (!existingProduct) {
+      return res.status(404).json({
+        success: false,
+        message: 'Producto no encontrado'
+      });
+    }
+
+    // Validar cantidad
+    if (!quantity || quantity <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'La cantidad debe ser mayor a 0'
+      });
+    }
+
+    // Crear entrada en transacción
+    const result = await prisma.$transaction(async (prismaTransaction) => {
+      // Actualizar stock del producto
+      const updatedProduct = await prismaTransaction.product.update({
+        where: { id: productId },
+        data: {
+          currentStock: {
+            increment: parseFloat(quantity)
+          }
+        }
+      });
+
+      // Crear registro de movimiento de stock
+      await prismaTransaction.stockMovement.create({
+        data: {
+          productId: productId,
+          userId: req.user.userId,
+          type: 'IN',
+          quantity: parseFloat(quantity),
+          previousStock: existingProduct.currentStock,
+          newStock: updatedProduct.currentStock,
+          reason: reason || 'RESTOCK',
+          notes: notes || null
+        }
+      });
+
+      return updatedProduct;
+    });
+
+    res.json({
+      success: true,
+      message: 'Stock agregado exitosamente',
+      product: result
+    });
+
+  } catch (error) {
+    console.error('Error al agregar stock:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor'
+    });
+  }
+});
+
+// GET /api/products/:id/stock-movements - Obtener movimientos de stock
+router.get('/:id/stock-movements', authMiddleware, async (req, res) => {
+  try {
+    const productId = parseInt(req.params.id);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    // Verificar que el producto pertenece al usuario
+    const product = await prisma.product.findFirst({
+      where: { 
+        id: productId,
+        userId: req.user.userId
+      }
+    });
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: 'Producto no encontrado'
+      });
+    }
+
+    const [movements, total] = await Promise.all([
+      prisma.stockMovement.findMany({
+        where: { productId: productId },
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+        include: {
+          user: {
+            select: {
+              fullName: true
+            }
+          }
+        }
+      }),
+      prisma.stockMovement.count({
+        where: { productId: productId }
+      })
+    ]);
+
+    res.json({
+      success: true,
+      movements,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages: Math.ceil(total / limit)
+      }
+    });
+
+  } catch (error) {
+    console.error('Error al obtener movimientos de stock:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor'
+    });
+  }
+});
+
+// POST /api/products/:id/adjust-stock - Ajustar stock (corrección manual)
+router.post('/:id/adjust-stock', authMiddleware, async (req, res) => {
+  try {
+    const productId = parseInt(req.params.id);
+    const { newStock, reason, notes } = req.body;
+
+    // Verificar que el producto existe y pertenece al usuario
+    const existingProduct = await prisma.product.findFirst({
+      where: { 
+        id: productId,
+        userId: req.user.userId
+      }
+    });
+
+    if (!existingProduct) {
+      return res.status(404).json({
+        success: false,
+        message: 'Producto no encontrado'
+      });
+    }
+
+    // Validar nuevo stock
+    if (newStock < 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'El stock no puede ser negativo'
+      });
+    }
+
+    const difference = parseFloat(newStock) - existingProduct.currentStock;
+
+    // Crear entrada en transacción
+    const result = await prisma.$transaction(async (prismaTransaction) => {
+      // Actualizar stock del producto
+      const updatedProduct = await prismaTransaction.product.update({
+        where: { id: productId },
+        data: {
+          currentStock: parseFloat(newStock)
+        }
+      });
+
+      // Crear registro de movimiento de stock
+      await prismaTransaction.stockMovement.create({
+        data: {
+          productId: productId,
+          userId: req.user.userId,
+          type: difference >= 0 ? 'IN' : 'OUT',
+          quantity: Math.abs(difference),
+          previousStock: existingProduct.currentStock,
+          newStock: updatedProduct.currentStock,
+          reason: reason || 'ADJUSTMENT',
+          notes: notes || null
+        }
+      });
+
+      return updatedProduct;
+    });
+
+    res.json({
+      success: true,
+      message: 'Stock ajustado exitosamente',
+      product: result
+    });
+
+  } catch (error) {
+    console.error('Error al ajustar stock:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error interno del servidor'
+    });
+  }
+});
+
 module.exports = router;
